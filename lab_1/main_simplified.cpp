@@ -5,7 +5,7 @@
 void main() {
     uint32_t state[4];
 
-    printf("Enter seed for generator\n");
+    puts("Enter seed for generator\n");
     uint32_t seed; //r8d
     scanf("%u", &seed);
 

@@ -5,12 +5,10 @@ state: resd 4
 
 section .rodata
     msg1:db "enter seed", 0
-    n: 
     
 section .text
 global main
 main:
-    mov rbp, rsp
     PRINT_STRING [msg1]
     NEWLINE
     GET_UDEC 4, r8d
