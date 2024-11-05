@@ -1,19 +1,27 @@
-%include "io64.inc"
-
 section .bss
-state: resd 4
+state: resq 1
 
 section .rodata
   msg1: db "Enter seed:", 0
   fmt: db "%u", 0
   fmt_output: db "%u", 10, 0
     
-global main
-
 extern printf
 extern scanf
-extern malloc, free
+extern malloc
+extern free
+
+section .text
+global main
 main:
+    sub rsp, 40 
+    mov rcx, 16 
+    call malloc
+    add rsp, 40
+    ;test rax, rax
+    ;jz .cycle_end
+    mov [state], rax
+    
     sub rsp, 40
     lea rcx, [rel msg1]
     call printf
@@ -38,10 +46,10 @@ main:
     mov r12d, [state + 12]
     mov r10d, [state]
     
-    mov eax, [state + 8]
-    mov [state + 12], eax
-    mov eax, [state + 4]
-    mov [state + 8], eax
+    mov ebx, [state + 8]
+    mov [state + 12], ebx
+    mov ebx, [state + 4]
+    mov [state + 8], ebx
     mov [state + 4], r10d
     
     mov r11d, r12d
@@ -72,4 +80,8 @@ main:
     
     jmp .cycle_start
 .cycle_end:
+    sub rsp, 40
+    mov rcx, [state]
+    call free
+    add rsp, 40
     ret
