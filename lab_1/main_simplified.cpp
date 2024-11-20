@@ -7,7 +7,7 @@ void main() {
 
     puts("Enter seed for generator\n");
     uint32_t seed; //r8d
-    scanf("%u", &seed);
+    scanf("%u", &seed); 
 
     state[0] = 0;
     state[1] = 0;
