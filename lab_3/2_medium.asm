@@ -14,3 +14,4 @@ main:
     
     call access5
     ret
+;C:\Users\Acer\Documents\low_level_prog\lab_3\medium.obj $PROGRAM.OBJ$ $MACRO.OBJ$ -g -o $PROGRAM$ -m64
