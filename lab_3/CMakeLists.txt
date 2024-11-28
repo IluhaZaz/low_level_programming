@@ -19,3 +19,4 @@ endif()
 
 
 add_executable(medium "medium.cpp")
+add_executable(hard "hard.cpp")

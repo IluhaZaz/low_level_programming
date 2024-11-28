@@ -6,21 +6,20 @@ namespace var5 {
     struct S {
         const float c = 6312.0;
 
-        bool check(bool res) {
+        void check(bool res) {
             if (res)
-                std::cout << "Access granted";
+                puts("Access granted");
             else
-                std::cout << "Access denied";
-            return res;
+                puts("Access denied");
         }
     };
 
-    extern "C" void access5(int a, double b, int c, float d) {
+    extern "C" void access5(int r8, double r8_8, int edx, float xmm0) {
         S s;
         bool res = false;
-        if (a >> 20 == a) {
-            if (std::isinf(b)) {
-                res = (float(c) - d) == s.c;
+        if (r8 >> 20 == r8) {
+            if (std::isinf(r8_8)) {
+                res = (float(edx) - xmm0) == s.c;
             }
         }
         s.check(res);

@@ -4,6 +4,7 @@ section .text
 extern access5
 global main
 main:
+    sub rsp, 32+8
     mov qword [r8], 0
     
     mov rax, [inf]
@@ -13,5 +14,6 @@ main:
     mov edx, 6312
     
     call access5
+    add rsp,32+8
     ret
 ;C:\Users\Acer\Documents\low_level_prog\lab_3\medium.obj $PROGRAM.OBJ$ $MACRO.OBJ$ -g -o $PROGRAM$ -m64
